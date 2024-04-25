@@ -1,5 +1,5 @@
 # Project: Recipe Sharing Platform
-Description: A recipe sharing platform where users can browse(view all), create, edit and delete receipies. Users can also rate and comment on recipes.
+Description: A recipe sharing platform where users can browse (view all), create, edit and delete receipies. Users can also rate and comment on recipes.
 
 # Technologies Used
 - Backend: Express.js for server-side logic
