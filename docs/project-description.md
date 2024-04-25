@@ -36,8 +36,8 @@ Description: A recipe sharing platform where users can browse (view all), create
     - `User.js`: User model for storing user information (e.g., username, password).
     - `Recipe.js`: Recipe model for storing recipe details (e.g., title, ingredients, instructions, creator).
 - `controllers/`: Directory for route controllers.
-- `authController.js`: Controller functions for user authentication.
-- `recipeController.js`: Controller functions for recipe management.
+    - `authController.js`: Controller functions for user authentication.
+    - `recipeController.js`: Controller functions for recipe management.
 
 ## Database
 - MongoDB database to store user, recipe data.
