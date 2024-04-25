@@ -1,18 +1,17 @@
-
-// Import necessary modules
 import express from 'express';
 import mongoose from 'mongoose';
+import {recipeRouter} from './routes/recipeRoutes.js';
 
-const URI = 'mongodb://127.0.0.1:27017';
 const PORT = 3000;
+const URI = 'mongodb://127.0.0.1:27017';
 
 // Initialize the app
 const app = express();
 
-// Define routes
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+// Middlewares
+app.use(express.json());
+app.use(recipeRouter);
+
 
 // Start the server
 app.listen(PORT, async () => {
