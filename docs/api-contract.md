@@ -1,31 +1,31 @@
 1. Authentication Endpoints:
-- POST /api/auth/register: Register a new user.
-    - Request Body: { username, email, password }
-    - Response: { message: "User registered successfully" }
-- POST /api/auth/login: Login user and generate authentication token.
-    - Request Body: { email, password }
-    - Response: { token: "JWT token" }
+- POST /auth/register: Register a new user.
+- Request Body: { username, email, password }
+- Response: { message: "User registered successfully" }
+- POST /auth/login: Login user and generate authentication token.
+- Request Body: { email, password }
+- Response: { token: "JWT token" }
 2. Recipe Endpoints:
-- GET /api/recipes: Get all recipes.
-    - Response: [{ recipe object }, { recipe object }, ...]
-- GET /api/recipes/:id: Get a specific recipe by ID.
-    - Response: { recipe object }
-- POST /api/recipes: Create a new recipe.
--    Request Body: { title, ingredients, instructions }
-    - Response: { message: "Recipe created successfully", recipe: { new recipe object } }
-- PUT /api/recipes/:id: Update an existing recipe by ID.
-    - Request Body: { title?, ingredients?, instructions? }
-    - Response: { message: "Recipe updated successfully", recipe: { updated recipe object } }
-- DELETE /api/recipes/:id: Delete a recipe by ID.
-    - Response: { message: "Recipe deleted successfully" }
+- GET /recipes: Get all recipes.
+- Response: [{ recipe object }, { recipe object }, ...]
+- GET /recipes/:id: Get a specific recipe by ID.
+- Response: { recipe object }
+- POST /recipes: Create a new recipe.
+- Request Body: { title, ingredients, instructions }
+- Response: { message: "Recipe created successfully", recipe: { new recipe object } }
+- PUT /recipes/:id: Update an existing recipe by ID.
+- Request Body: { title?, ingredients?, instructions? }
+- Response: { message: "Recipe updated successfully", recipe: { updated recipe object } }
+- DELETE /recipes/:id: Delete a recipe by ID.
+- Response: { message: "Recipe deleted successfully" }
 3. Review Endpoints:
-- GET api/recipes/:recipe_id/reviews: Retrieves all review for a specific recipe
+- GET /recipes/:recipe_id/reviews: Retrieves all review for a specific recipe
     - Response: [{ review object }, { review object }, ...]
 - GET /recipes/:recipe_id/reviews/:review_id: Retrieves a specific review for a specific recipe
-    - Response: { review object }
-- POST /api/recipes/:id/review: Add a rating and a comment to a recipe.
-    - Request Body: {  }
-    - Response: { message: "Review added successfully" }
+- Response: { review object }
+- POST /recipes/:id/review: Add a rating and a comment to a recipe.
+- Request Body: {  }
+- Response: { message: "Review added successfully" }
 - PUT /recipes/:recipe_id/reviews/:review_id: Updates a specific review for a specific recipe
     - Request Body: {  }
     - Response: { message: "Review updated successfully" }
@@ -33,16 +33,16 @@
     - Request Body: {  }
     - Response: { message: "Review deleted successfully" }
 4. User Profile Endpoints:
-- GET /api/users: Get all user profiles.
-    - Response: { user object }
-- GET /api/users/:id: Get user profile by ID.
-    - Response: { user object }
-- PUT /api/users/:id: Update user profile by ID.
-    - Request Body: { username?, email?, password? }
-    - Response: { message: "User profile updated successfully", user: { updated user object } }
-- DELETE /api/users/:id: Delete user profile by ID.
-    - Request Body: { username?, email?, password? }
-    - Response: { message: "User profile deleted successfully" }
+- GET /users: Get all user profiles.
+- Response: { user object }
+- GET /users/:id: Get user profile by ID.
+- Response: { user object }
+- PUT /users/:id: Update user profile by ID.
+- Request Body: { username?, email?, password? }
+- Response: { message: "User profile updated successfully", user: { updated user object } }
+- DELETE /users/:id: Delete user profile by ID.
+- Request Body: { username?, email?, password? }
+- Response: { message: "User profile deleted successfully" }
 5. User-Recipe Interaction
 - GET /users/:user_id/recipes
     - Description: Retrieves all recipes posted by a specific user
