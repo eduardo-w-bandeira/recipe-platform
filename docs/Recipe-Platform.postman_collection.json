@@ -1,0 +1,726 @@
+{
+	"info": {
+		"_postman_id": "e63234fd-7de4-409b-9c92-55c3d5e44e17",
+		"name": "Recipe-Platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31252592"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"User2\",\r\n    \"email\": \"user2@gmail.com\",\r\n    \"password\": \"user2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/auth/register",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Auth Test\",\r\n    \"password\": \"abc123xyz\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/auth/login",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recipes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recipe By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/:id",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"\",\r\n    \"ingredients\": \"\",\r\n    \"instructions\": \"\",\r\n    \"category\": \"\",\r\n    \"creator\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recipe By ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"\",\r\n    \"ingredients\": \"\",\r\n    \"instructions\": \"\",\r\n    \"category\": \"\",\r\n    \"creator\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/:id",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recipe By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/:id",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reviews for a specific Recipe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/:id/reviews",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						":id",
+						"reviews"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A specific Review for a specific Recipe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/:recipe_id/reviews/:review_id",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						":recipe_id",
+						"reviews",
+						":review_id"
+					],
+					"variable": [
+						{
+							"key": "recipe_id",
+							"value": ""
+						},
+						{
+							"key": "review_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reviews for a specific Recipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": \"\",\r\n    \"comment\": \"\",\r\n    \"user\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/:id/reviews",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						":id",
+						"reviews"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A specific Review for a specific Recipe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": \"\",\r\n    \"comment\": \"\",\r\n    \"user\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/:recipe_id/reviews/:review_id",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						":recipe_id",
+						"reviews",
+						":review_id"
+					],
+					"variable": [
+						{
+							"key": "recipe_id",
+							"value": ""
+						},
+						{
+							"key": "review_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "A specific Review for a specific Recipe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/:recipe_id/reviews/:review_id",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						":recipe_id",
+						"reviews",
+						":review_id"
+					],
+					"variable": [
+						{
+							"key": "recipe_id",
+							"value": ""
+						},
+						{
+							"key": "review_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/662aacc0ab520c28123a507b",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						"662aacc0ab520c28123a507b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User By ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"User3\",\r\n    \"email\": \"user3@gmail.com\",\r\n    \"password\": \"user3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/662aacc0ab520c28123a507b",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						"662aacc0ab520c28123a507b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/662aacc0ab520c28123a507b",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						"662aacc0ab520c28123a507b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recipes posted by a specific User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/:id/recipes",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						":id",
+						"recipes"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User associated with a specific Recipe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/:id/users",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						":id",
+						"users"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recipe by a specific User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"\",\r\n    \"ingredients\": \"\",\r\n    \"instructions\": \"\",\r\n    \"category\": \"\",\r\n    \"creator\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/:id/recipes",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						":id",
+						"recipes"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reviews posted by a specific User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/:id/reviews",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						":id",
+						"reviews"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User associated with a specific Review",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/reviews/:id/users",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"reviews",
+						":id",
+						"users"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Review by a specific User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\": \"\",\r\n    \"comment\": \"\",\r\n    \"recipe\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/users/:id/reviews",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"users",
+						":id",
+						"reviews"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "localhost:3000"
+		}
+	]
+}

@@ -14,11 +14,11 @@ export async function getAllUsers(req, res) {
 }
 
 export async function getUserByID(req, res) {
-  if (!req.params._id) {
+  if (!req.params.id) {
     throw new Error("Can't receive User ID");
   }
   try {
-    const id = new mongoose.Schema.Types.ObjectId(req.params._id);
+    const id = new mongoose.Types.ObjectId(req.params.id);
     const user = await User.findById(id);
     res.status(200).send(user);
   } catch (err) {
@@ -28,17 +28,17 @@ export async function getUserByID(req, res) {
 }
 
 export async function updateUserByID(req, res) {
-  if (!req.params._id) {
+  if (!req.params.id) {
     throw new Error("Can't receive User ID");
   }
   // TODO: need to research
   const { username, email, password } = req.body;
   try {
-    const id = new mongoose.Schema.Types.ObjectId(req.params._id);
+    const id = new mongoose.Types.ObjectId(req.params.id);
     const updatedUser = await User.findByIdAndUpdate(
       { _id: id },
-      { username, email, password }
-    ); // TODO
+      { username: username, email: email, password: password }
+    );
     res.status(200).send(updatedUser);
   } catch (err) {
     console.error(`Unable to update a user by ID: ${err}`);
@@ -47,11 +47,11 @@ export async function updateUserByID(req, res) {
 }
 
 export async function deleteUserByID(req, res) {
-  if (!req.params._id) {
+  if (!req.params.id) {
     throw new Error("Can't receive User ID");
   }
   try {
-    const id = new mongoose.Schema.Types.ObjectId(req.params._id);
+    const id = new mongoose.Types.ObjectId(req.params.id);
     const deletedUser = await User.findByIdAndDelete(id);
     res.status(200).send(deletedUser);
   } catch (err) {
@@ -61,11 +61,13 @@ export async function deleteUserByID(req, res) {
 }
 
 // For Entities Interaction Endpoints
+// !!Not checked if the following controllers work
+
 // User-Recipe Interaction
 export async function getRecipesByUser(req, res) {
   try {
-    const userID = new mongoose.Schema.Types.ObjectId(
-      req.params._id
+    const userID = new mongoose.Types.ObjectId(
+      req.params.id
     ).toString();
     const recipeList = await Recipe.aggregate([
       {
@@ -85,19 +87,19 @@ export async function getRecipesByUser(req, res) {
 
 export async function createRecipeByUser(req, res) {
   try {
-    const creator = new mongoose.Schema.Types.ObjectId(
-      req.params._id
+    const creator = new mongoose.Types.ObjectId(
+      req.params.id
     ).toString();
     const { title, ingredients, instructions, category } = req.body;
 
-    const newRecipe = await Recipe.insert({
+    const newRecipe = new Recipe({
       title,
       ingredients,
       instructions,
       category,
       creator,
     });
-
+    await newRecipe.save();
     res.status(200).send(newRecipe);
   } catch (err) {
     console.error(`Unable to post a new recipe by a specific user: ${err}`);
@@ -108,8 +110,8 @@ export async function createRecipeByUser(req, res) {
 // User-Review Interaction
 export async function getReviewsByUser(req, res) {
   try {
-    const userID = new mongoose.Schema.Types.ObjectId(
-      req.params._id
+    const userID = new mongoose.Types.ObjectId(
+      req.params.id
     ).toString();
     const reviewList = await Review.aggregate([
       {
@@ -129,17 +131,17 @@ export async function getReviewsByUser(req, res) {
 
 export async function postReviewByUser(req, res) {
   try {
-    const user = new mongoose.Schema.Types.ObjectId(req.params._id).toString();
+    const user = new mongoose.Types.ObjectId(req.params.id).toString();
     const { rating, recipe } = req.body;
     const comment = req.body.comment ?? null;
 
-    const newReview = await Review.insert({
+    const newReview = new Review({
       rating,
       comment,
       recipe,
       user,
     });
-
+    await newReview.save();
     res.status(200).send(newReview);
   } catch (err) {
     console.error(`Unable to post a new review by a specific user: ${err}`);

@@ -6,7 +6,7 @@ const reviewSchema = new mongoose.Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, ref: User },
     recipe: { type: mongoose.Schema.Types.ObjectId, ref: Recipe },
-    rating: { type: Number, required: true },
+    rating: { type: String, required: true },
     comment: { type: String }, // accepts blank
   },
   { timestamps: true }

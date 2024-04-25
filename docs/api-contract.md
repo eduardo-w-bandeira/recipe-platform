@@ -19,7 +19,7 @@
 - DELETE /recipes/:id: Delete a recipe by ID.
 - Response: { message: "Recipe deleted successfully" }
 3. Review Endpoints:
-- GET api/recipes/:recipe_id/reviews: Retrieves all review for a specific recipe
+- GET /recipes/:recipe_id/reviews: Retrieves all review for a specific recipe
     - Response: [{ review object }, { review object }, ...]
 - GET /recipes/:recipe_id/reviews/:review_id: Retrieves a specific review for a specific recipe
 - Response: { review object }
