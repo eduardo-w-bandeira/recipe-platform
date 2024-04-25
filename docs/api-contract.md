@@ -1,51 +1,51 @@
 1. Authentication Endpoints:
 - POST /api/auth/register: Register a new user.
-- Request Body: { username, email, password }
-- Response: { message: "User registered successfully" }
+    - Request Body: { username, email, password }
+    - Response: { message: "User registered successfully" }
 - POST /api/auth/login: Login user and generate authentication token.
-- Request Body: { email, password }
-- Response: { token: "JWT token" }
+    - Request Body: { email, password }
+    - Response: { token: "JWT token" }
 2. Recipe Endpoints:
 - GET /api/recipes: Get all recipes.
-- Response: [{ recipe object }, { recipe object }, ...]
+    - Response: [{ recipe object }, { recipe object }, ...]
 - GET /api/recipes/:id: Get a specific recipe by ID.
-- Response: { recipe object }
+    - Response: { recipe object }
 - POST /api/recipes: Create a new recipe.
-- Request Body: { title, ingredients, instructions }
-- Response: { message: "Recipe created successfully", recipe: { new recipe object } }
+-    Request Body: { title, ingredients, instructions }
+    - Response: { message: "Recipe created successfully", recipe: { new recipe object } }
 - PUT /api/recipes/:id: Update an existing recipe by ID.
-- Request Body: { title?, ingredients?, instructions? }
-- Response: { message: "Recipe updated successfully", recipe: { updated recipe object } }
+    - Request Body: { title?, ingredients?, instructions? }
+    - Response: { message: "Recipe updated successfully", recipe: { updated recipe object } }
 - DELETE /api/recipes/:id: Delete a recipe by ID.
-- Response: { message: "Recipe deleted successfully" }
+    - Response: { message: "Recipe deleted successfully" }
 3. Review Endpoints:
 - GET api/recipes/:recipe_id/reviews: Retrieves all review for a specific recipe
-- Response: [{ review object }, { review object }, ...]
+    - Response: [{ review object }, { review object }, ...]
 - GET /recipes/:recipe_id/reviews/:review_id: Retrieves a specific review for a specific recipe
-- Response: { review object }
+    - Response: { review object }
 - POST /api/recipes/:id/review: Add a rating and a comment to a recipe.
-- Request Body: {  }
-- Response: { message: "Review added successfully" }
+    - Request Body: {  }
+    - Response: { message: "Review added successfully" }
 - PUT /recipes/:recipe_id/reviews/:review_id: Updates a specific review for a specific recipe
-- Request Body: {  }
-- Response: { message: "Review updated successfully" }
+    - Request Body: {  }
+    - Response: { message: "Review updated successfully" }
 - DELETE /recipes/:recipe_id/reviews/:review_id: Deletes a specific review for a specific recipe
-- Request Body: {  }
-- Response: { message: "Review deleted successfully" }
+    - Request Body: {  }
+    - Response: { message: "Review deleted successfully" }
 4. User Profile Endpoints:
 - GET /api/users: Get all user profiles.
-- Response: { user object }
+    - Response: { user object }
 - GET /api/users/:id: Get user profile by ID.
-- Response: { user object }
+    - Response: { user object }
 - PUT /api/users/:id: Update user profile by ID.
-- Request Body: { username?, email?, password? }
-- Response: { message: "User profile updated successfully", user: { updated user object } }
+    - Request Body: { username?, email?, password? }
+    - Response: { message: "User profile updated successfully", user: { updated user object } }
 - DELETE /api/users/:id: Delete user profile by ID.
-- Request Body: { username?, email?, password? }
-- Response: { message: "User profile deleted successfully" }
+    - Request Body: { username?, email?, password? }
+    - Response: { message: "User profile deleted successfully" }
 5. User-Recipe Interaction
 - GET /users/:user_id/recipes
-  - Description: Retrieves all recipes posted by a specific user
+    - Description: Retrieves all recipes posted by a specific user
 - GET /recipes/:recipe_id/users
   - Description: Retrieves the user associated with a specific recipe
 - POST /users/:user_id/recipes
