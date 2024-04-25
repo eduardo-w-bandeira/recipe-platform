@@ -1,18 +1,21 @@
 
 // Import necessary modules
 import express from 'express';
-import { json } from 'body-parser';
-import cors from 'cors';
+import mongoose from 'mongoose';
+
+
+const URI = 'mongodb://127.0.0.1:27017';
+const PORT = 3000;
 
 // Initialize the app
 const app = express();
 
 // Configure middleware
-app.use(json());
-app.use(cors());
+// app.use(json());
+// app.use(cors());
 
 // 4. Set up database connection
-import mongoose from 'mongoose';
+
 
 
 // Define routes
