@@ -33,8 +33,8 @@ Description: A recipe sharing platform where users can browse (view all), create
     - `authRoutes.js`: Routes for user authentication (signup, login, logout).
     - `recipeRoutes.js`: Routes for recipe management (create, read, update, delete recipes).
 - `models/`: Directory for Mongoose models.
-    - `User.js`: User model for storing user information (e.g., username, password).
-    - `Recipe.js`: Recipe model for storing recipe details (e.g., title, ingredients, instructions, creator).
+    - `user.js`: User model for storing user information (e.g., username, password).
+    - `recipe.js`: Recipe model for storing recipe details (e.g., title, ingredients, instructions, creator).
 - `controllers/`: Directory for route controllers.
     - `authController.js`: Controller functions for user authentication.
     - `recipeController.js`: Controller functions for recipe management.
