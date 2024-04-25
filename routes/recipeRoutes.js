@@ -1,9 +1,8 @@
 import express from 'express';
-import {getAllRecipes, index} from '../controllers/recipeController.js';
+import {getAllRecipes} from '../controllers/recipeController.js';
 
 const recipeRouter = express.Router();
 
-recipeRouter.get('/', index);
-recipeRouter.get('/recipes', getAllRecipes);
+recipeRouter.get('/', getAllRecipes);
 
-export {recipeRouter};
+export default recipeRouter;

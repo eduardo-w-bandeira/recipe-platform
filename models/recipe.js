@@ -12,4 +12,4 @@ const recipeSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-export const RecipeModel = mongoose.model('Recipe', recipeSchema);
+export const Recipe = mongoose.model('Recipe', recipeSchema);
