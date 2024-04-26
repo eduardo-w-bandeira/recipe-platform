@@ -3,7 +3,7 @@
     - Request Body: { username, email, password }
     - Response: { message: "User registered successfully" }
 - POST /auth/login: Login user and generate authentication token.
-- Request Body: { username, password }
+    - Request Body: { username, password }
 2. Recipe Endpoints:
 - GET /recipes: Get all recipes.
     - Response: [{ recipe object }, { recipe object }, ...]
