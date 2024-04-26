@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import authRouter from './routes/authRoutes.js';
 import userRouter from './routes/userRoutes.js';
 import recipeRouter from './routes/recipeRoutes.js';
+import reviewRouter from './routes/reviewRoutes.js';
 
 const URI = 'mongodb://127.0.0.1:27017';
 const PORT = 3000;
@@ -16,9 +17,14 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Recipt Social Platform');
 });
+
 app.use('/auth', authRouter);
 app.use('/users', userRouter);
 app.use('/recipes', recipeRouter);
+app.use('/reviews', reviewRouter);
+app.use((req, res, next) => {
+  res.status(404).send("Sorry can't find that!");
+});
 
 // Start the server
 app.listen(PORT, async () => {

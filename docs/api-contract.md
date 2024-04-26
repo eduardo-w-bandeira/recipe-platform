@@ -3,8 +3,7 @@
     - Request Body: { username, email, password }
     - Response: { message: "User registered successfully" }
 - POST /auth/login: Login user and generate authentication token.
-    - Request Body: { email, password }
-    - Response: { token: "JWT token" }
+    - Request Body: { username, password }
 2. Recipe Endpoints:
 - GET /recipes: Get all recipes.
     - Response: [{ recipe object }, { recipe object }, ...]
@@ -47,9 +46,9 @@
 - GET /users/:user_id/recipes
     - Description: Retrieves all recipes posted by a specific user
 - GET /recipes/:recipe_id/users
-  - Description: Retrieves the user associated with a specific recipe
+    - Description: Retrieves the user associated with a specific recipe
 - POST /users/:user_id/recipes
-  - Description: Creates a new recipe by a specific user
+    - Description: Creates a new recipe by a specific user
 6. User-Review Interaction
 - GET /users/:user_id/reviews
     - Description: Retrieves all reviews posted by a specific user
