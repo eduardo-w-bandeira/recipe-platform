@@ -1,13 +1,12 @@
 import bcrypt from 'bcrypt';
-import mongoose from 'mongoose';
 import { User } from '../models/user.js';
 
 // For Sole Entity Endpoints
 export async function userRegister(req, res) {
   const saltRounds = 10;
   const { username, email, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, saltRounds);
   try {
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
     const newUser = new User({
       username,
       email,
@@ -24,11 +23,11 @@ export async function userRegister(req, res) {
 export async function userLogin(req, res) {
   const { username, password } = req.body;
   try {
-    const loginUser = await User.findOne({ username: username }).exec();
+    const loginUser = await User.findOne({ username }).exec();
     const match = await bcrypt.compare(password, loginUser.password);
     if (match) {
       // login
-      res.status(200).send(`Loged in successfully`);
+      res.status(200).send(`Logged in successfully`);
     } else {
       // failed
       res.status(500).send('Username or password may be wrong. Try again');
