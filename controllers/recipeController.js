@@ -55,7 +55,7 @@ export async function getAllRecipesWithRating(req, res) {
     console.error('Unable to retrieve recipes with rating');
     res.status(500).send({ message: err.message });
   }
-}
+};
 
 export async function postRecipe(req, res) {
   const { title, ingredients, instructions, category } = req.body;
@@ -74,7 +74,7 @@ export async function postRecipe(req, res) {
     console.error(`Unable to post a new recipe: ${err}`);
     res.status(500).send({ message: err.message });
   }
-}
+};
 
 // For Reviews associated with a specific Recipe
 export async function getReviews(req, res) {
@@ -86,7 +86,7 @@ export async function getReviews(req, res) {
     console.error(`Unable to retrieve reviews for a specific recipe: ${err}`);
     res.status(500).send({ message: err.message });
   }
-}
+};
 
 export async function getReviewByID(req, res) {
   const recipeID = new mongoose.Types.ObjectId(req.params.recipe_id);
@@ -103,7 +103,7 @@ export async function getReviewByID(req, res) {
     );
     res.status(500).send({ message: err.message });
   }
-}
+};
 
 export async function postReview(req, res) {
   const { rating, comment } = req.body;
@@ -122,7 +122,7 @@ export async function postReview(req, res) {
     console.error(`Unable to post a review: ${err}`);
     res.status(500).send({ message: err.message });
   }
-}
+};
 
 export async function updateReviewByID(req, res) {
   const recipeID = new mongoose.Types.ObjectId(req.params.recipe_id);
@@ -146,7 +146,7 @@ export async function updateReviewByID(req, res) {
     );
     res.status(500).send({ message: err.message });
   }
-}
+};
 
 export async function deleteReviewByID(req, res) {
   const recipeID = new mongoose.Types.ObjectId(req.params.recipe_id);
@@ -163,7 +163,7 @@ export async function deleteReviewByID(req, res) {
     );
     res.status(500).send({ message: err.message });
   }
-}
+};
 
 // For User-Recipe Interaction
 export async function getCreatorByRecipe(req, res) {
@@ -175,4 +175,4 @@ export async function getCreatorByRecipe(req, res) {
     console.error('Unable to find the creator for this recipe');
     res.status(500).send({ message: err.message });
   }
-}
+};
