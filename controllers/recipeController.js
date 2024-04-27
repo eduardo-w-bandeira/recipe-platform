@@ -39,9 +39,15 @@ export async function updateRecipe(req, res) {
 };
 
 export async function deleteRecipe(req, res) {
-    await Recipe.findByIdAndDelete(req.params.id);
-    res.json({ "message": "Recipe deleted successfully" });
+    try {
+        await Recipe.findByIdAndDelete(req.params.id);
+        res.status(200).send('Recipe deleted successfully');
+    } catch (err) {
+        console.error(`Unable to delete a recipe: ${err}`);
+        res.status(500).send({ message: err.message });
+    };
 };
+
 
 // Retrieve recipes with rating
 export async function getAllRecipesWithRating(req, res) {
