@@ -24,26 +24,6 @@ export async function createRecipe(req, res) {
     };
 };
 
-// export async function postRecipe(req, res) {
-//     const { title, ingredients, instructions, category } = req.body;
-//     const creator = new mongoose.Types.ObjectId(req.body.creator);
-//     try {
-//         const newRecipe = new Recipe({
-//             title,
-//             ingredients,
-//             instructions,
-//             category,
-//             creator,
-//         });
-//         await newRecipe.save();
-//         res.status(201).json({ message: "Recipe created successfully", recipe: newRecipe });
-//     } catch (err) {
-//         console.error(`Unable to post a new recipe: ${err}`);
-//         res.status(500).send({ message: err.message });
-//     }
-// };
-
-
 export async function updateRecipe(req, res) {
     const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json({ "message": "Recipe updated successfully", "recipe": recipe });
