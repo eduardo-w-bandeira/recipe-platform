@@ -9,12 +9,19 @@ export async function getAllRecipes(req, res) {
     } catch (err) {
         console.error(`Unable to retrieve all recipes: ${err}`);
         res.status(500).send({ message: err.message });
-    }};
+    }
+};
 
 export async function getRecipe(req, res) {
-    const recipe = await Recipe.findById(req.params.id);
-    res.json(recipe);
+    try {
+        const recipe = await Recipe.findById(req.params.id);
+        res.status(200).send(recipe);
+    } catch (err) {
+        console.error(`Unable to retrieve a specific recipe: ${err}`);
+        res.status(500).send({ message: err.message });
+    }
 };
+
 
 export async function createRecipe(req, res) {
     try {
