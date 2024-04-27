@@ -2,7 +2,7 @@ import express from 'express';
 import {
     getAllRecipes,
     getRecipe,
-    addRecipe,
+    createRecipe,
     updateRecipe,
     deleteRecipe,
     getReviewByID,
@@ -11,7 +11,6 @@ import {
     updateReviewByID,
     deleteReviewByID,
     getCreatorByRecipe,
-    postRecipe,
     getAllRecipesWithRating,
 } from '../controllers/recipeController.js';
 
@@ -19,7 +18,7 @@ const recipeRouter = express.Router();
 
 recipeRouter.get('/', getAllRecipes);
 recipeRouter.get('/:id', getRecipe);
-recipeRouter.post('/', addRecipe);
+recipeRouter.post('/', createRecipe);
 recipeRouter.put('/:id', updateRecipe);
 recipeRouter.delete('/:id', deleteRecipe);
 recipeRouter.get('/rating', getAllRecipesWithRating);
