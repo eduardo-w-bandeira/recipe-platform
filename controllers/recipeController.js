@@ -3,9 +3,13 @@ import { Recipe } from '../models/recipe.js';
 import { Review } from '../models/review.js';
 
 export async function getAllRecipes(req, res) {
-    const data = await Recipe.find();
-    res.json(data);
-};
+    try {
+        const recipeList = await Recipe.find();
+        res.status(200).send(recipeList);
+    } catch (err) {
+        console.error(`Unable to retrieve all recipes: ${err}`);
+        res.status(500).send({ message: err.message });
+    }};
 
 export async function getRecipe(req, res) {
     const recipe = await Recipe.findById(req.params.id);
@@ -25,8 +29,13 @@ export async function createRecipe(req, res) {
 };
 
 export async function updateRecipe(req, res) {
-    const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json({ "message": "Recipe updated successfully", "recipe": recipe });
+    try {
+        const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.status(200).json({ message: "Recipe updated successfully", recipe: recipe });
+    } catch (err) {
+        console.error(`Unable to update a recipe: ${err}`);
+        res.status(500).send({ message: err.message });
+    };
 };
 
 export async function deleteRecipe(req, res) {
