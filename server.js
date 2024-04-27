@@ -1,4 +1,3 @@
-// Import necessary modules
 import express from 'express';
 import mongoose from 'mongoose';
 import authRouter from './routes/authRoutes.js';
@@ -11,13 +10,14 @@ const PORT = 3000;
 
 // Initialize the app
 const app = express();
+
+// Middleware
 app.use(express.json());
 
-// Define routes
+// Routes
 app.get('/', (req, res) => {
-  res.send('Recipt Social Platform');
+  res.send('Recipe Sharing Platform');
 });
-
 app.use('/auth', authRouter);
 app.use('/users', userRouter);
 app.use('/recipes', recipeRouter);
