@@ -187,9 +187,10 @@ export async function getCreatorByRecipe(req, res) {
     }
 };
 
-// Search for recipes by title and/or ingredients and/or category
+// Search for recipes by title and/or ingredients and/or category and/or tags
+// Example: /recipes/search?title=chicken&ingredients=garlic&category=dinner&tags=spicy,quick
 export async function searchRecipesBy(req, res) {
-    const { title, ingredients, category } = req.query;
+    const { title, ingredients, category, tags } = req.query;
     try {
         let query = {};
         if (title) {
@@ -200,6 +201,9 @@ export async function searchRecipesBy(req, res) {
         }
         if (category) {
             query.category = { $regex: category, $options: 'i' };
+        }
+        if (tags) {
+            query.tags = { $all: tags.split(',') };
         }
         const recipeList = await Recipe.find(query);
         res.status(200).send(recipeList);
