@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"User3\",\r\n    \"email\": \"user3@gmail.com\",\r\n    \"password\": \"user3\"\r\n}",
+					"raw": "{\r\n    \"username\": \"User4\",\r\n    \"email\": \"user4@gmail.com\",\r\n    \"password\": \"user4\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"Auth Test\",\r\n    \"password\": \"abc123xyz\"\r\n}",
+					"raw": "{\r\n    \"email\": \"user3@gmail.com\",\r\n    \"password\": \"user3\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -107,12 +107,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{BASE_URL}}/recipes",
+					"raw": "{{BASE_URL}}/recipes/rating",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
-						"recipes"
+						"recipes",
+						"rating"
 					]
 				}
 			},
@@ -136,19 +137,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{BASE_URL}}/recipes/:id",
+					"raw": "{{BASE_URL}}/recipes/662d2b8d1e58de5984676f1d",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"recipes",
-						":id"
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": ""
-						}
+						"662d2b8d1e58de5984676f1d"
 					]
 				}
 			},
@@ -161,7 +156,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Recipe3\",\r\n    \"ingredients\": \"Ingredients3\",\r\n    \"instructions\": \"Instructions3\",\r\n    \"category\": \"Lunch\",\r\n    \"creator\": \"662ab350b2f1a51e35af1560\"\r\n}",
+					"raw": "{\r\n    \"title\": \"Recipe4\",\r\n    \"ingredients\": \"Ingredients4\",\r\n    \"instructions\": \"Instructions4\",\r\n    \"category\": \"Dessert\",\r\n    \"creator\": \"662ab350b2f1a51e35af1560\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -316,7 +311,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"rating\": 2,\r\n    \"comment\": \"Amazing\",\r\n    \"user\": \"662ab340b2f1a51e35af155e\"\r\n}",
+					"raw": "{\r\n    \"rating\": 3,\r\n    \"comment\": \"Could be better\",\r\n    \"user\": \"662ab350b2f1a51e35af1560\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -324,13 +319,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{BASE_URL}}/recipes/662b23ef2bc8094eca0c6491/reviews",
+					"raw": "{{BASE_URL}}/recipes/662af3cccd6c13368511c5a3/reviews",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"recipes",
-						"662b23ef2bc8094eca0c6491",
+						"662af3cccd6c13368511c5a3",
 						"reviews"
 					]
 				}
@@ -344,7 +339,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"rating\": \"Great\",\r\n    \"comment\": \"I will cook by myself twice a week\",\r\n    \"user\": \"662ab350b2f1a51e35af1560\"\r\n}",
+					"raw": "{\r\n    \"rating\": \"5\",\r\n    \"comment\": \"Great! Easy to cook and really good\",\r\n    \"user\": \"662ab350b2f1a51e35af1560\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -372,15 +367,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/recipes/662af51a9dbab06b4e128f29/reviews/662b0cafbe52936098004378",
+					"raw": "{{BASE_URL}}/recipes/662af3cccd6c13368511c5a3/reviews/662de65f7d8466faa914f669",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"recipes",
-						"662af51a9dbab06b4e128f29",
+						"662af3cccd6c13368511c5a3",
 						"reviews",
-						"662b0cafbe52936098004378"
+						"662de65f7d8466faa914f669"
 					]
 				}
 			},
@@ -469,13 +464,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{BASE_URL}}/users/662aacc0ab520c28123a507b",
+					"raw": "{{BASE_URL}}/users/662ab350b2f1a51e35af1560",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"users",
-						"662aacc0ab520c28123a507b"
+						"662ab350b2f1a51e35af1560"
 					]
 				}
 			},
@@ -513,23 +508,14 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"password\": \"user3\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "{{BASE_URL}}/users/662b1d7199221a1ec7795f1a",
+					"raw": "{{BASE_URL}}/users/662df40fa9d617a6da0e3cee",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"users",
-						"662b1d7199221a1ec7795f1a"
+						"662df40fa9d617a6da0e3cee"
 					]
 				}
 			},
@@ -584,13 +570,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{BASE_URL}}/recipes/662af3cccd6c13368511c5a3/users",
+					"raw": "{{BASE_URL}}/recipes/662d2b8d1e58de5984676f1d/users",
 					"host": [
 						"{{BASE_URL}}"
 					],
 					"path": [
 						"recipes",
-						"662af3cccd6c13368511c5a3",
+						"662d2b8d1e58de5984676f1d",
 						"users"
 					]
 				}
@@ -682,7 +668,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"rating\": \"Bad\",\r\n    \"recipe\": \"662af51a9dbab06b4e128f29\"\r\n}",
+					"raw": "{\r\n    \"rating\": \"2\",\r\n    \"recipe\": \"662af51a9dbab06b4e128f29\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

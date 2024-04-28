@@ -15,8 +15,8 @@ export async function getAllUsers(req, res) {
 }
 
 export async function getUserByID(req, res) {
-  const id = new mongoose.Types.ObjectId(req.params.id);
   try {
+    const id = new mongoose.Types.ObjectId(req.params.id);
     const user = await User.findById(id);
     res.status(200).send(user);
   } catch (err) {
@@ -26,9 +26,9 @@ export async function getUserByID(req, res) {
 }
 
 export async function updateUserByID(req, res) {
-  const { username, email, password } = req.body;
-  const id = new mongoose.Types.ObjectId(req.params.id);
   try {
+    const { username, email, password } = req.body;
+    const id = new mongoose.Types.ObjectId(req.params.id);
     const updatedUser = await User.findByIdAndUpdate(
       { _id: id },
       { username, email, password }
@@ -41,8 +41,8 @@ export async function updateUserByID(req, res) {
 }
 
 export async function deleteUserByID(req, res) {
-  const id = new mongoose.Types.ObjectId(req.params.id);
   try {
+    const id = new mongoose.Types.ObjectId(req.params.id);
     const deletedUser = await User.findByIdAndDelete(id);
     res.status(200).send('User deleted successfully');
   } catch (err) {
@@ -52,7 +52,6 @@ export async function deleteUserByID(req, res) {
 }
 
 // For Entities Interaction Endpoints
-
 // User-Recipe Interaction
 export async function getRecipesByUser(req, res) {
   try {
