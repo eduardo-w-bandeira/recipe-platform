@@ -17,11 +17,11 @@ import {
 const recipeRouter = express.Router();
 
 recipeRouter.get('/', getAllRecipes);
-recipeRouter.get('/:id', getRecipe);
 recipeRouter.post('/', createRecipe);
+recipeRouter.get('/rating', getAllRecipesWithRating); // Changed the order because endpoints are used in a defined sequence
+recipeRouter.get('/:id', getRecipe);
 recipeRouter.put('/:id', updateRecipe);
 recipeRouter.delete('/:id', deleteRecipe);
-recipeRouter.get('/rating', getAllRecipesWithRating);
 
 // For Reviews
 recipeRouter.get('/:id/reviews', getReviews);

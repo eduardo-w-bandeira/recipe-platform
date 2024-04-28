@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
 import { User } from '../models/user.js';
 import { Recipe } from '../models/recipe.js';
 import { Review } from '../models/review.js';
@@ -30,17 +29,11 @@ export async function updateUserByID(req, res) {
   const { username, email, password } = req.body;
   const id = new mongoose.Types.ObjectId(req.params.id);
   try {
-    const loginUser = await User.findById(id);
-    const match = await bcrypt.compare(password, loginUser.password);
-    if (match) {
-      const updatedUser = await User.findByIdAndUpdate(
-        { _id: id },
-        { username, email }
-      );
-      res.status(200).send('User updated successfully');
-    } else {
-      throw new Error('Password is wrong. Try again');
-    }
+    const updatedUser = await User.findByIdAndUpdate(
+      { _id: id },
+      { username, email, password }
+    );
+    res.status(200).send('User updated successfully');
   } catch (err) {
     console.error(`Unable to update a user by ID: ${err}`);
     res.status(500).send({ message: err.message });
@@ -49,16 +42,9 @@ export async function updateUserByID(req, res) {
 
 export async function deleteUserByID(req, res) {
   const id = new mongoose.Types.ObjectId(req.params.id);
-  const password = req.body.password;
   try {
-    const loginUser = await User.findById(id);
-    const match = await bcrypt.compare(password, loginUser.password);
-    if (match) {
-      const deletedUser = await User.findByIdAndDelete(id);
-      res.status(200).send('User deleted successfully');
-    } else {
-      throw new Error('Password is wrong. Try again');
-    }
+    const deletedUser = await User.findByIdAndDelete(id);
+    res.status(200).send('User deleted successfully');
   } catch (err) {
     console.error(`Unable to delete a user by ID: ${err}`);
     res.status(500).send({ message: err.message });
