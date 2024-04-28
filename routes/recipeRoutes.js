@@ -12,6 +12,7 @@ import {
     deleteReviewByID,
     getCreatorByRecipe,
     getAllRecipesWithRating,
+    searchRecipesBy,
 } from '../controllers/recipeController.js';
 
 const recipeRouter = express.Router();
@@ -19,6 +20,7 @@ const recipeRouter = express.Router();
 recipeRouter.get('/', getAllRecipes);
 recipeRouter.post('/', createRecipe);
 recipeRouter.get('/rating', getAllRecipesWithRating); // Changed the order because endpoints are used in a defined sequence
+recipeRouter.get('/search', searchRecipesBy);
 recipeRouter.get('/:id', getRecipe);
 recipeRouter.put('/:id', updateRecipe);
 recipeRouter.delete('/:id', deleteRecipe);
