@@ -20,7 +20,7 @@ const recipeRouter = express.Router();
 recipeRouter.get('/', getAllRecipes);
 recipeRouter.post('/', createRecipe);
 recipeRouter.get('/rating', getAllRecipesWithRating); // Changed the order because endpoints are used in a defined sequence
-recipeRouter.get('/search', searchRecipesBy);
+recipeRouter.get('/search', searchRecipesBy); // Example: /recipes/search?title=chicken&ingredients=garlic&category=dinner&tags=spicy,quick
 recipeRouter.get('/:id', getRecipe);
 recipeRouter.put('/:id', updateRecipe);
 recipeRouter.delete('/:id', deleteRecipe);
