@@ -21,16 +21,16 @@ export async function userRegister(req, res) {
 }
 
 export async function userLogin(req, res) {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   try {
-    const loginUser = await User.findOne({ username }).exec();
+    const loginUser = await User.findOne({ email }).exec();
     const match = await bcrypt.compare(password, loginUser.password);
     if (match) {
       // login
       res.status(200).send(`Logged in successfully`);
     } else {
       // failed
-      res.status(500).send('Username or password may be wrong. Try again');
+      res.status(500).send('Email or password may be wrong. Try again');
     }
   } catch (err) {
     console.error(`Unable to register a new user: ${err}`);
