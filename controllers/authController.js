@@ -1,12 +1,11 @@
 import bcrypt from 'bcrypt';
 import { User } from '../models/user.js';
 
-// For Sole Entity Endpoints
 export async function userRegister(req, res) {
   const saltRounds = 10;
-  const { username, email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, saltRounds);
   try {
+    const { username, email, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
     const newUser = new User({
       username,
       email,
@@ -21,8 +20,8 @@ export async function userRegister(req, res) {
 }
 
 export async function userLogin(req, res) {
-  const { email, password } = req.body;
   try {
+    const { email, password } = req.body;
     const loginUser = await User.findOne({ email }).exec();
     const match = await bcrypt.compare(password, loginUser.password);
     if (match) {
