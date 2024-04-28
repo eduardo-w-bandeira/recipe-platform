@@ -189,3 +189,29 @@ export async function getCreatorByRecipe(req, res) {
     res.status(500).send({ message: err.message });
   }
 }
+
+// Search for recipes by title and/or ingredients and/or category and/or tags
+// Example: /recipes/search?title=chicken&ingredients=garlic&category=dinner&tags=spicy,quick
+export async function searchRecipesBy(req, res) {
+    const { title, ingredients, category, tags } = req.query;
+    try {
+        let query = {};
+        if (title) {
+            query.title = { $regex: title, $options: 'i' };
+        }
+        if (ingredients) {
+            query.ingredients = { $regex: ingredients, $options: 'i' };
+        }
+        if (category) {
+            query.category = { $regex: category, $options: 'i' };
+        }
+        if (tags) {
+            query.tags = { $all: tags.split(',') };
+        }
+        const recipeList = await Recipe.find(query);
+        res.status(200).send(recipeList);
+    } catch (err) {
+        console.error('Unable to search for recipes');
+        res.status(500).send({ message: err.message });
+    }
+};

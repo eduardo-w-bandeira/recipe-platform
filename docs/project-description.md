@@ -2,17 +2,18 @@
 Description: A recipe sharing platform where users can browse (view all), create, edit and delete receipies. Users can also rate and comment on recipes.
 
 # Technologies Used
-- Backend: Express.js for server-side logic
-- Database: MongoDB with Mongoose for data storage
+- Backend: Express.js for server-side logic.
+- Database: MongoDB with Mongoose for data storage.
 
 # Features
 
 ## User Authentication
 - Sign up, log in functionalities.
 - Password hashing for security: Use https://www.npmjs.com/package/bcryptLinks to an external site.
+- Optional: log out functionalities.
 
 ## Recipe Management
-- Create recipes with a title, ingredients, instructions and select category(breakfast, lunch, dinner, dessert).
+- Create recipes with a title, ingredients, instructions and select category (breakfast, lunch, dinner, dessert).
 - Edit and delete recipes.
 - View recipes created by oneself and others.
 
@@ -41,3 +42,6 @@ Description: A recipe sharing platform where users can browse (view all), create
 
 ## Database
 - MongoDB database to store user, recipe data.
+
+## Child Processes:
+- [Optional]: Utilized within the backend for any asynchronous tasks like sending email notifications. https://www.npmjs.com/package/nodemailer

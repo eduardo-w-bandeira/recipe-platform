@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "e63234fd-7de4-409b-9c92-55c3d5e44e17",
+		"_postman_id": "b4a68559-6dbd-48a8-9f3a-b0855fe6cd8e",
 		"name": "Recipe-Platform",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "31252592"
+		"_exporter_id": "33380893"
 	},
 	"item": [
 		{
@@ -376,6 +376,42 @@
 						"662af3cccd6c13368511c5a3",
 						"reviews",
 						"662de65f7d8466faa914f669"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Recipes by Title, Ingridients or Category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/recipes/search?",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"recipes",
+						"search"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
 					]
 				}
 			},

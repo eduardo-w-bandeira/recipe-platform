@@ -7,6 +7,8 @@
 2. Recipe Endpoints:
 - GET /recipes: Get all recipes.
     - Response: [{ recipe object }, { recipe object }, ...]
+- GET /recipes/search: Search recipes by query parameters (title, ingredients or category).
+    - Response: [{ recipe object }, { recipe object }, ...]
 - GET /recipes/:id: Get a specific recipe by ID.
     - Response: { recipe object }
 - POST /recipes: Create a new recipe.
